@@ -1,2 +1,15 @@
 Resource - https://leetcode.com/problemset/all/
 
+
+Easy
+_1TwoSum
+
+
+
+
+Medium
+
+
+
+
+Hard
