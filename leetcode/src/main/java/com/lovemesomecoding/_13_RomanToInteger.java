@@ -16,6 +16,8 @@ import java.util.Map;
  * D - 500<br>
  * M - 1000<br>
  * 
+ * Note: A dash(-) on top means 3 zeros like x with dash on top is 10000.<br>
+ * 
  * Example, two is written as II in Roman numeral, two one's added together.<br>
  * Twelve is written as, XII, which is simply X + II. <br>
  * The number twenty seven is written as XXVII, which is XX + V + II.<br>
@@ -47,6 +49,13 @@ public class _13_RomanToInteger {
 		});
 	}
 
+	/**
+	 * 1. Get a dictionary for roman to english integers. <br>
+	 * 2. Loop through each char in str get corresponding integer.<br>
+	 * 
+	 * @param str
+	 * @return
+	 */
 	public static int romanToInt(String str) {
 		System.out.println("roman to int: " + str);
 
@@ -56,26 +65,29 @@ public class _13_RomanToInteger {
 
 		for (int i = 0; i < str.length(); i++) {
 
-			String c = str.charAt(i) + "";
+			String romanInt = String.valueOf(str.charAt(i));
 
-			if (romanDictionary.containsKey(c)) {
+			if (romanDictionary.containsKey(romanInt)) {
 
 				int number = 0;
 
-				if ((i + 1) < str.length() && romanDictionary.containsKey(c + str.charAt(i + 1))) {
+				// check again for special cases
+				if ((i + 1) < str.length() && romanDictionary.containsKey(romanInt + str.charAt(i + 1))) {
 
-					number = romanDictionary.get(c + str.charAt(i + 1));
+					number = romanDictionary.get(romanInt + str.charAt(i + 1));
+
+					// move cursor one more.
 					i++;
 
 				} else {
 
-					number = romanDictionary.get(c);
+					number = romanDictionary.get(romanInt);
 
 				}
 
 				result += number;
 
-				System.out.println("c: " + c + ", number: " + number + ", result: " + result);
+				System.out.println("c: " + romanInt + ", number: " + number + ", result: " + result);
 			}
 		}
 		return result;
@@ -90,6 +102,8 @@ public class _13_RomanToInteger {
 	 * C - 100<br>
 	 * D - 500<br>
 	 * M - 1000<br>
+	 * 
+	 * A dash(-) on top means add 3 zeros like x with dash on top is 10000.<br>
 	 */
 	private static Map<String, Integer> getRomanIntsDictionary() {
 		Map<String, Integer> romanIntegers = new HashMap<>();
@@ -101,6 +115,7 @@ public class _13_RomanToInteger {
 		romanIntegers.put("D", 500);
 		romanIntegers.put("M", 1000);
 
+		// special cases.
 		romanIntegers.put("IV", 4);
 		romanIntegers.put("IX", 9);
 		romanIntegers.put("XL", 40);
