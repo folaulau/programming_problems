@@ -6,11 +6,11 @@ import java.util.Arrays;
  * Difficulty - Easy
  * Given a 32-bit signed integer, reverse digits of an integer.
  */
-public class _7ReverseInteger {
+public class _7_ReverseInteger {
 
 	public static void main(String[] args) {
 
-		Arrays.asList(1534236469).forEach((num) -> {
+		Arrays.asList(123, 23, 00300, 1534236469).forEach((num) -> {
 			System.out.println("num: " + num);
 //			int reversedNum = reverseInt(num);
 //			System.out.println("reversedNum: " + reversedNum);

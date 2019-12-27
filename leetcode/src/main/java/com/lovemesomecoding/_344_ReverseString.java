@@ -11,7 +11,7 @@ import java.util.Arrays;
  * 
  * You may assume all the characters consist of printable ascii characters.
  */
-public class _344ReverseString {
+public class _344_ReverseString {
 
 	public static void main(String[] args) {
 		Arrays.asList("folau", "lisa").forEach((word) -> {

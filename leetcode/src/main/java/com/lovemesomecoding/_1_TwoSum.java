@@ -12,7 +12,7 @@ import java.util.Map;
  * they add up to a specific target. You may assume that each input would have 
  * exactly one solution, and you may not use the same element twice.
  */
-public class _1TwoSum {
+public class _1_TwoSum {
 
 	public static void main(String[] args) {
 		int target = 5;
