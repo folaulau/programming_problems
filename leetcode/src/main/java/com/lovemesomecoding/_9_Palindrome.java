@@ -30,26 +30,27 @@ public class _9_Palindrome {
 	 * first half of the number.<br>
 	 * how do we know that we've reached the half of the number?<br>
 	 * 1. Get last half of the number<br>
-	 * 2. <br>
-	 * 1. Get last half of num<br>
-	 * 
-	 * @param num
-	 * @return
+	 * 2. Decrease firstHalf number everytime lastHalf number increases.<br>
+	 * 3. Go until lastHalfNumber is equal or greater than the firstHalfNumber<br>
+	 * 4. 
 	 */
-	public static boolean isPalindromeNumber(int num) {
-		if (num < 0 || (num % 10 == 0 && num != 0)) {
+	public static boolean isPalindromeNumber(int number) {
+		System.out.println("is " + number + " a palindrome?");
+		if (number < 0 || (number % 10 == 0 && number != 0)) {
 			return false;
 		}
 
-		int revertedNumber = 0;
+		int lastHalfNumber = 0;
+		int firstHalfNumber = number;
 
-		while (num > revertedNumber) {
-			revertedNumber = (revertedNumber * 10) + (num % 10);
-			System.out.println("num: " + num + ", revertedNumber: " + revertedNumber);
-			num = removeNumberFromRight(num);
+		// go until the lastHalfNumber is equal or greater than the firstHalfNumber;
+		while (firstHalfNumber > lastHalfNumber) {
+			lastHalfNumber = flipNumber(lastHalfNumber, (firstHalfNumber % 10));
+			System.out.println("firstHalfNumber: " + firstHalfNumber + ", lastHalfNumber: " + lastHalfNumber);
+			firstHalfNumber = removeNumberFromRight(firstHalfNumber);
 		}
 
-		return (num == revertedNumber) || (num == (revertedNumber / 10));
+		return (firstHalfNumber == lastHalfNumber) || (firstHalfNumber == (lastHalfNumber / 10));
 	}
 
 	/**
@@ -58,6 +59,15 @@ public class _9_Palindrome {
 	 */
 	private static int removeNumberFromRight(int number) {
 		return (int) (number / 10);
+	}
+
+	/**
+	 * revert the new remainder and the existing number<br>
+	 * - get remainder of (number % 10)<br>
+	 * - add (lastHalfNumber * 10)<br>
+	 */
+	private static int flipNumber(int lastHalfNumber, int newRemainder) {
+		return (lastHalfNumber * 10) + newRemainder;
 	}
 
 	public static boolean isPalindromeString(String str) {
