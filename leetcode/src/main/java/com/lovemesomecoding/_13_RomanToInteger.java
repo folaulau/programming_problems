@@ -76,7 +76,7 @@ public class _13_RomanToInteger {
 
 					number = romanDictionary.get(romanInt + str.charAt(i + 1));
 
-					// move cursor one more.
+					// move cursor one more since you are consuming the next char already.
 					i++;
 
 				} else {
