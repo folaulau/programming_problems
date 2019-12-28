@@ -24,10 +24,11 @@ import java.util.Stack;
 public class _20_ValidParentheses {
 
 	public static void main(String[] args) {
-		Arrays.asList("(sdfsd)", "(sdf)[dsf]{sdf}", "(]", "([)]", "{[sdf]ll}","a*(b+c)-<d*e>","(a*(b-c)*{d+e}").forEach(str -> {
-			boolean valid = isValidParentheses(str);
-			System.out.println("str: " + str + ", valid: " + valid + "\n\n");
-		});
+		Arrays.asList("(sdfsd)", "(sdf)[dsf]{sdf}", "(]", "([)]", "{[sdf]ll}", "a*(b+c)-<d*e>", "(a*(b-c)*{d+e}")
+				.forEach(str -> {
+					boolean valid = isValidParentheses(str);
+					System.out.println("str: " + str + ", valid: " + valid + "\n\n");
+				});
 	}
 
 	/**
@@ -45,7 +46,7 @@ public class _20_ValidParentheses {
 	 */
 	public static boolean isValidParentheses(String str) {
 		Map<Character, Character> parenthesesMappings = populateParentheses();
-		
+
 		Stack<Character> stack = new Stack<Character>();
 
 		for (int i = 0; i < str.length(); i++) {
@@ -63,11 +64,12 @@ public class _20_ValidParentheses {
 				}
 
 			} else {
-				// If it was an opening bracket, push to the stack.
-				if (parentheses == '{' || parentheses == '(' || parentheses == '['|| parentheses == '<') {
+
+				// If it was an opening, push to the stack.
+				if (parenthesesMappings.values().contains(parentheses)) {
 					stack.push(parentheses);
 				}
-				
+
 			}
 
 		}
