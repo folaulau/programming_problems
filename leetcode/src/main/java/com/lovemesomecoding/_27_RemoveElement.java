@@ -2,6 +2,7 @@ package com.lovemesomecoding;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -67,26 +68,16 @@ public class _27_RemoveElement {
 	}
 
 	public static int removeElement(List<Integer> numbers, int value) {
-		System.out.println("removeDuplicates..");
+		System.out.println("removeElement.."+value);
+		System.out.println("numbers: " + numbers);
+		Iterator<Integer> it = numbers.iterator();
 
-		boolean zero = false;
-
-		if (numbers.contains(0)) {
-			zero = true;
-		}
-
-		for (int i = 0; i < numbers.size(); i++) {
-			if (numbers.get(i).equals(value)) {
-				numbers.set(i, 0);
+		while (it.hasNext()) {
+			Integer i = it.next();
+			if (i.equals(value)) {
+				it.remove();
 			}
 		}
-		System.out.println("numbers: " + numbers);
-		numbers.removeIf(n -> (n == 0));
-
-		if (zero) {
-			numbers.add(0, 0);
-		}
-
 		System.out.println("final numbers: " + numbers);
 		return numbers.size();
 	}
