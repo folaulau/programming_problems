@@ -195,6 +195,12 @@ class ListNode {
 	ListNode(int x) {
 		val = x;
 	}
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "val: "+val;
+	}
 
 	/**
 	 * append to end of list
