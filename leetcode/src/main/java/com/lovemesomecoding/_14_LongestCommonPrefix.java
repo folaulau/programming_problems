@@ -11,7 +11,7 @@ import java.util.Map;
  * 
  * Example 1:<br>
  * Input: ["flower","flow","flight"]<br>
- * Output: "fl"<br>
+ * Output: "fl"<br
  *
  */
 public class _14_LongestCommonPrefix {

@@ -6,11 +6,20 @@ public class _125_ValidPalindrome {
 
 	public static void main(String[] args) {
 
-		Arrays.asList("A man 2, a plan, a canal: Pa2nama", "Kinga", "KinggniK", "Fusi").forEach(str -> {
-			boolean result = isPalindromeString(str);
-			System.out.println("str: " + str + ", isPalindrome: " + result + "\n\n");
-		});
+//		Arrays.asList("A man 2, a plan, a canal: Pa2nama", "Kinga", "KinggniK", "Fusi").forEach(str -> {
+//			boolean result = isPalindromeString(str);
+//			System.out.println("str: " + str + ", isPalindrome: " + result + "\n\n");
+//		});
+//		
+		for(int i=0;i<10;i=i++) {
+			i+=1;
+			System.out.println("Hello World!");
+		}
 
+	}
+
+	static void print() {
+		throw new Error();
 	}
 
 	public static boolean isPalindromeString(String str) {
